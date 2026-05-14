@@ -5,7 +5,7 @@ public class Main {
         Product[] productsArray = new Product[5];
         productsArray[0] = new Product(
                 "IPhone 17 Pro",
-                "17.09.2025",
+                "18.09.2025",
                 "Apple",
                 "USA",
                 7777,
