@@ -1,28 +1,21 @@
 package Lesson4;
 
-public class Circle implements Figure {
-        private double radius;
-        private String fillColor;
-        private String borderColor;
+public class Circle extends FigureColor implements Figure {
+
+    private double radius;
+
         public Circle(double radius, String fillColor, String borderColor) {
+            super(fillColor, borderColor);
             this.radius = radius;
-            this.fillColor = fillColor;
-            this.borderColor = borderColor;
         }
         @Override
         public double getArea() {
+
             return Math.PI * radius * radius;
         }
         @Override
         public double getPerimeter() {
+
             return 2 * Math.PI * radius;
-        }
-        @Override
-        public String getFillColor() {
-            return fillColor;
-        }
-        @Override
-        public String getBorderColor() {
-            return borderColor;
         }
     }
