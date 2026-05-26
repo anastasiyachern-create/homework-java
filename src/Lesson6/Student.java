@@ -1,4 +1,5 @@
 package Lesson6;
+
 import java.util.List;
 
 public class Student {
@@ -6,6 +7,7 @@ public class Student {
     private String group;
     private int course;
     private List<Integer> grades;
+
     public Student(String name,
                    String group,
                    int course,
@@ -15,15 +17,19 @@ public class Student {
         this.course = course;
         this.grades = grades;
     }
+
     public String getName() {
         return name;
     }
+
     public int getCourse() {
         return course;
     }
+
     public void setCourse(int course) {
         this.course = course;
     }
+
     public double getAverageGrade() {
         int sum = 0;
         for (int grade : grades) {
@@ -31,6 +37,7 @@ public class Student {
         }
         return (double) sum / grades.size();
     }
+
     @Override
     public String toString() {
         return "Student{" +

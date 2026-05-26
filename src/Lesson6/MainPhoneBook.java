@@ -1,6 +1,7 @@
 package Lesson6;
 
 public class MainPhoneBook {
+
     public static void main(String[] args) {
         PhoneBook phoneBook = new PhoneBook();
         phoneBook.add("Иванов", "111-111");

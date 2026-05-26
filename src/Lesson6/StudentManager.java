@@ -1,4 +1,5 @@
 package Lesson6;
+
 import java.util.Iterator;
 import java.util.Set;
 
@@ -20,6 +21,7 @@ public class StudentManager {
             }
         }
     }
+
     public static void printStudents(Set<Student> students,
                                      int course) {
         System.out.println("Студенты курса " + course + ":");
