@@ -1,4 +1,4 @@
-package Lesson7;
+package Lesson7_Junit;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;

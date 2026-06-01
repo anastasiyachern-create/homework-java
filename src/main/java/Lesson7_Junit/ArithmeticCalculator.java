@@ -1,4 +1,4 @@
-package Lesson7;
+package Lesson7_Junit;
 
 public class ArithmeticCalculator {
 
