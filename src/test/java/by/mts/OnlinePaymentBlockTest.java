@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class OnlinePaymentBlockTest extends BaseUiTest {
 
@@ -19,5 +20,43 @@ public class OnlinePaymentBlockTest extends BaseUiTest {
                 "Онлайн пополнение без комиссии",
                 homePage.paymentTitleText()
         );
+    }
+    @Test
+    @DisplayName("Отображаются логотипы платежных систем")
+    void paymentSystemsLogosAreDisplayed() {
+
+        HomePage homePage = new HomePage(driver, wait).open();
+
+        assertEquals(
+                5,
+                homePage.getPaymentLogosCount()
+        );
+    }
+    @Test
+    @DisplayName("Переход по ссылке Подробнее о сервисе")
+    void detailsLinkWorks() {
+
+        HomePage homePage = new HomePage(driver, wait).open();
+
+        homePage.hideCookieBanner();
+        homePage.clickDetailsLink();
+
+        assertEquals(
+                "https://www.mts.by/help/poryadok-oplaty-i-bezopasnost-internet-platezhey/",
+                homePage.getCurrentUrl()
+        );
+    }
+    @Test
+    @DisplayName("Заполнение формы и нажатие кнопки Продолжить")
+    void continueButtonWorks() {
+
+        HomePage homePage = new HomePage(driver, wait).open();
+
+        homePage.hideCookieBanner();
+
+        homePage.enterPhone("297777777");
+        homePage.enterSum("100");
+
+        homePage.clickContinue();
     }
 }
