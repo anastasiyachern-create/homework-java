@@ -73,6 +73,7 @@ public class HomePage {
     public String getCurrentUrl() {
         return driver.getCurrentUrl();
     }
+
     public void enterPhone(String phone) {
         wait.until(
                 ExpectedConditions.visibilityOfElementLocated(phoneField)

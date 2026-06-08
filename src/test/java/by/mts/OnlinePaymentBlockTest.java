@@ -5,7 +5,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class OnlinePaymentBlockTest extends BaseUiTest {
 
@@ -21,6 +20,7 @@ public class OnlinePaymentBlockTest extends BaseUiTest {
                 homePage.paymentTitleText()
         );
     }
+
     @Test
     @DisplayName("Отображаются логотипы платежных систем")
     void paymentSystemsLogosAreDisplayed() {
@@ -32,6 +32,7 @@ public class OnlinePaymentBlockTest extends BaseUiTest {
                 homePage.getPaymentLogosCount()
         );
     }
+
     @Test
     @DisplayName("Переход по ссылке Подробнее о сервисе")
     void detailsLinkWorks() {
@@ -46,6 +47,7 @@ public class OnlinePaymentBlockTest extends BaseUiTest {
                 homePage.getCurrentUrl()
         );
     }
+
     @Test
     @DisplayName("Заполнение формы и нажатие кнопки Продолжить")
     void continueButtonWorks() {
