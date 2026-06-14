@@ -6,31 +6,22 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PaymentPage {
-
     private final WebDriver driver;
     private final WebDriverWait wait;
-
     private final By cardNumber =
             By.xpath("//*[contains(text(),'Номер карты')]");
-
     private final By expiryDate =
             By.xpath("//*[contains(text(),'Срок действия')]");
-
     private final By cvc =
             By.xpath("//*[contains(text(),'CVC')]");
-
     private final By cardHolder =
             By.xpath("//*[contains(text(),'Имя и фамилия')]");
-
     private final By amount =
             By.xpath("//*[contains(text(),'BYN')]");
-
     private final By paymentInfo =
             By.xpath("//*[contains(text(),'37529')]");
-
     private final By payButton =
             By.xpath("//*[contains(text(),'Оплатить')]");
-
     private final By paymentSystems =
             By.cssSelector("img");
 

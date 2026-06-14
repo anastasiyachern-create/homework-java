@@ -1,103 +1,85 @@
 package by.mts.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePage {
-
     private final WebDriver driver;
     private final WebDriverWait wait;
-
     private static final String URL = "https://www.mts.by/";
-
     private final By paymentTitle =
             By.cssSelector("#pay-section h2");
-
     private final By paymentLogos =
             By.cssSelector(".pay__partners img");
-
     private final By detailsLink =
             By.xpath("//a[contains(text(),'Подробнее о сервисе')]");
-
-
     private final By phoneField =
             By.id("connection-phone");
-
     private final By sumField =
             By.xpath("//form[@id='pay-connection']//input[@placeholder='Сумма']");
-
     private final By continueButton =
             By.xpath("//form[@id='pay-connection']//button[@type='submit']");
-
     private final By serviceTypeDropdown =
             By.cssSelector(".select__header");
-
     private final By internetPhoneField =
             By.id("internet-phone");
-
     private final By installmentField =
             By.id("score-instalment");
-
     private final By arrearsField =
             By.id("score-arrears");
-
 
     public HomePage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
     }
 
+    @Step("Открываем главную страницу МТС")
     public HomePage open() {
         driver.get(URL);
         return this;
     }
 
+    @Step("Выбираем Домашний интернет")
     public void selectHomeInternet() {
-
         wait.until(
                 ExpectedConditions.elementToBeClickable(serviceTypeDropdown)
         ).click();
-
         var element = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(
                         By.xpath("//p[text()='Домашний интернет']")
                 )
         );
-
         ((org.openqa.selenium.JavascriptExecutor) driver)
                 .executeScript("arguments[0].click();", element);
     }
 
+    @Step("Выбираем Рассрочка")
     public void selectInstallment() {
-
         wait.until(
                 ExpectedConditions.elementToBeClickable(serviceTypeDropdown)
         ).click();
-
         var element = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(
                         By.xpath("//p[text()='Рассрочка']")
                 )
         );
-
         ((org.openqa.selenium.JavascriptExecutor) driver)
                 .executeScript("arguments[0].click();", element);
     }
 
+    @Step("Выбираем Задолженность")
     public void selectArrears() {
-
         wait.until(
                 ExpectedConditions.elementToBeClickable(serviceTypeDropdown)
         ).click();
-
         var element = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(
                         By.xpath("//p[text()='Задолженность']")
                 )
         );
-
         ((org.openqa.selenium.JavascriptExecutor) driver)
                 .executeScript("arguments[0].click();", element);
     }
@@ -122,9 +104,7 @@ public class HomePage {
                 .getAttribute("placeholder");
     }
 
-
     public String paymentTitleText() {
-
         return wait.until(
                 ExpectedConditions.visibilityOfElementLocated(paymentTitle)
         ).getText().replaceAll("\\s+", " ").trim();
@@ -136,6 +116,7 @@ public class HomePage {
         ).size();
     }
 
+    @Step("Переходим по ссылке Подробнее о сервисе")
     public void clickDetailsLink() {
         wait.until(
                 ExpectedConditions.elementToBeClickable(detailsLink)
@@ -146,28 +127,30 @@ public class HomePage {
         return driver.getCurrentUrl();
     }
 
+    @Step("Вводим номер телефона: {phone}")
     public void enterPhone(String phone) {
         wait.until(
                 ExpectedConditions.visibilityOfElementLocated(phoneField)
         ).sendKeys(phone);
     }
 
+    @Step("Вводим сумму: {sum}")
     public void enterSum(String sum) {
         wait.until(
                 ExpectedConditions.visibilityOfElementLocated(sumField)
         ).sendKeys(sum);
     }
 
+    @Step("Нажимаем кнопку Продолжить")
     public void clickContinue() {
-
         var button = wait.until(
                 ExpectedConditions.elementToBeClickable(continueButton)
         );
-
         ((org.openqa.selenium.JavascriptExecutor) driver)
                 .executeScript("arguments[0].click();", button);
     }
 
+    @Step("Скрываем баннер cookies")
     public void hideCookieBanner() {
         ((org.openqa.selenium.JavascriptExecutor) driver)
                 .executeScript(
